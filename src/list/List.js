@@ -10,14 +10,34 @@ import Paper          from "@material-ui/core/Paper";
 
 import Loading        from "./Loading";
 import Error          from "./Error";
+import SortIcon       from "./SortIcon";
+import { makeStyles } from "@material-ui/core";
 
-const HeadCell = ({field,title,toggleSort,align="left"}) =>
-  <TableCell 
-    style={{cursor:'pointer',userSelect:'none'}}
-    onClick={ e => toggleSort(field)}
-    align={align}>
-      {title}
-  </TableCell>
+const useStyles = makeStyles( theme => ({
+  headCell: {
+    cursor:'pointer',
+    userSelect:'none',
+    fontWeight:'bold',
+    "&>span": {
+      display: 'inline-flex'
+    }
+  }
+}));
+
+const HeadCell = ({ field, title, toggleSort, sortBy, align="left" }) => {
+  const classes = useStyles();
+  return (
+<TableCell
+  component="th"
+  variant="head"
+  className={classes.headCell}
+  onClick={ e => toggleSort(field)}
+  align={align}>
+    <span>
+      { title }
+      <SortIcon {...{ field, sortBy }}/>
+    </span>
+</TableCell> )};
 
 export default function List({data,error,loading,sortBy,toggleSort=()=>{}}) {
 
@@ -29,17 +49,15 @@ export default function List({data,error,loading,sortBy,toggleSort=()=>{}}) {
   <Table>
     <TableHead>
       <TableRow>
-        <HeadCell {...{ field:"name",  title:"Name",  toggleSort }}/>
-        <HeadCell {...{ field:"age",   title:"Age",   toggleSort, align:'right' }}/>
-        <HeadCell {...{ field:"email", title:"eMail", toggleSort, align:'right' }}/>
-        <HeadCell {...{ field:"id",    title:"ID",    toggleSort, align:'right' }}/>
+        <HeadCell {...{ field:"name",  title:"Name",  toggleSort, sortBy }}/>
+        <HeadCell {...{ field:"age",   title:"Age",   toggleSort, sortBy, align:'right' }}/>
+        <HeadCell {...{ field:"email", title:"eMail", toggleSort, sortBy, align:'right' }}/>
+        <HeadCell {...{ field:"id",    title:"ID",    toggleSort, sortBy, align:'right' }}/>
       </TableRow>
     </TableHead>
     <TableBody> { data.users.map((row) => (
       <TableRow key={row.name}>
-        <TableCell component="th" scope="row">
-          {row.name}
-        </TableCell>
+        <TableCell component="th" scope="row">{row.name}</TableCell>
         <TableCell align="right">{row.age}</TableCell>
         <TableCell align="right">{row.email}</TableCell>
         <TableCell align="right">{row.id.split("-").pop()}</TableCell>

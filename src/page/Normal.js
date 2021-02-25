@@ -1,7 +1,7 @@
 
 import React        from 'react';
-import List         from './List';
-import GET_USERS    from "./query";
+import List         from '../list/List';
+import GET_USERS    from "../list/query";
 import { useQuery } from "@apollo/client";
 
 export default function Normal() {

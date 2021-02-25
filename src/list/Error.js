@@ -4,7 +4,7 @@ import { Alert } from '@material-ui/lab';
 
 export default function Error({error}) {
   return (
-    <Alert variant="error">
+    <Alert severity="error">
       {error.message}
     </Alert>
   );

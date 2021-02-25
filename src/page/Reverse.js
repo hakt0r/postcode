@@ -1,8 +1,8 @@
 
 import React, { useMemo } from 'react';
-import List               from './List';
-import GET_USERS          from "./query";
 import { useQuery }       from "@apollo/client";
+import GET_USERS          from "../list/query";
+import List               from '../list/List';
 
 const reverseByAge = (a,b) => b.age - a.age;
 

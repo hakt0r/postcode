@@ -2,6 +2,8 @@
   "name": "postcode-ex",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bender.hktr.de/postcode",
+  "proxy": "https://bender.hktr.de/",
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@material-ui/core": "^4.11.3",

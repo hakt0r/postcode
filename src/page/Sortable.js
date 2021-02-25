@@ -1,9 +1,9 @@
 
 import React, { useMemo, useState } from 'react';
 
-import List         from './List';
-import GET_USERS    from "./query";
 import { useQuery } from "@apollo/client";
+import GET_USERS    from "../list/query";
+import List         from '../list/List';
 
 const types = {
   name:  String,
