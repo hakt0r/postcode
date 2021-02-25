@@ -4,7 +4,7 @@ const typeDefs         = require('./types');
 const mocks            = require('./mocks');
 
 const server = new ApolloServer({
-  cors: { origin: 'https://bender.hktr.de/' },
+  cors: { origin: '*' }, //https://bender.hktr.de/' },
   playground: false,
   typeDefs,
   mocks
