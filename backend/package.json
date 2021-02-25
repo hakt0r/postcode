@@ -1,0 +1,18 @@
+{
+  "name": "postcode-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "push": "sh push.sh"
+  },
+  "author": "anx <anx@hktr.de>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.21.0",
+    "faker": "^5.4.0",
+    "graphql": "^15.5.0",
+    "nodemon": "^2.0.7"
+  }
+}
